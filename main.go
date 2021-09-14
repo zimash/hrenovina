@@ -25,5 +25,7 @@ func main() {
 
 	http.HandleFunc("/healthz", healthCheck)
 	log.Printf("Server starting on %d port", httpPort)
-	http.ListenAndServe(fmt.Sprintf(":%d", httpPort), nil)
+	if err := http.ListenAndServe(fmt.Sprintf(":%d", httpPort), nil); err != nil {
+		log.Fatal(err)
+	}
 }
