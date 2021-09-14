@@ -16,7 +16,9 @@ type jsonPayload struct{}
 func healthCheck(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%s from %s\n", r.RequestURI, r.RemoteAddr)
 	w.Header().Add("Content-Type", "application/json")
-	fmt.Fprint(w, jsonPayload{})
+	if _, err := fmt.Fprint(w, jsonPayload{}); err != nil {
+		log.Printf("An error %s occured during execution\n", err)
+	}
 }
 
 func main() {
