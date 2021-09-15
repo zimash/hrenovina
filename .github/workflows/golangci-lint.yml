@@ -13,7 +13,7 @@ jobs:
   golanglint:
     name: lint
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v2
     - name: golangci-lint
