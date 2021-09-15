@@ -3,3 +3,6 @@ all:
 
 clean:
 	rm -rf ./bin
+
+lint:
+	golangci-lint run -v
