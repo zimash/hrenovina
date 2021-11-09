@@ -1,0 +1,25 @@
+name: test
+
+on:
+  push:
+    branches:
+      - master
+      - feat/*
+      - fix/*
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  golanglint:
+    name: test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: v1.17.2
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Test
+      run: go test -v ./...
