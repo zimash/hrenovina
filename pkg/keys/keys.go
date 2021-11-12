@@ -5,3 +5,16 @@ type Keys interface {
 	verify()
 	generate()
 }
+
+type MockKey struct {
+	key string
+}
+
+func (mk *MockKey) pasrse() {
+}
+
+func (mk *MockKey) verify() {
+}
+
+func (mk *MockKey) generate() {
+}
